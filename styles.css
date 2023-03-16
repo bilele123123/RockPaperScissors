@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subject {
+    display: flex;
+    justify-content: space-between;
+}
+
+.player, .computer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.player {
+    margin-right: 100px;
+}
+
+.computer {
+    margin-left: 100px;
+}
+
+.endGame {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.results {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.rounds {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px;
+}
