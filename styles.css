@@ -1,7 +1,30 @@
+.container {
+    max-width: 100%;
+    margin: 0;
+    padding: 20px;
+    width: 740px;
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #27241D;
+    color: #D3CEC4;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+.title {
+    background-color: #504A40;
+    width: 100%;
+    border-radius: 15px;
+    text-align: center;
 }
 
 .subject {
@@ -9,34 +32,29 @@ body {
     justify-content: space-between;
 }
 
-.player, .computer {
+.player,
+.computer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-.player {
-    margin-right: 100px;
-}
-
-.computer {
-    margin-left: 100px;
+    font-size: 20px;
+    text-align: center;
+    width: 40%;
 }
 
 .endGame {
-    display: flex;
     text-align: center;
-    justify-content: center;
     margin-top: 10px;
     font-weight: bold;
 }
 
 .results {
-    display: flex;
     text-align: center;
-    justify-content: center;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
 }
 
 .rounds {
@@ -44,4 +62,87 @@ body {
     justify-content: center;
     flex-direction: column;
     padding: 0px;
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    font-size: 120px;
+    background-color: transparent;
+    border: solid #625D52;
+    border-radius: 15px;
+}
+
+button:hover {
+    background-color: #857F72;
+}
+
+.choice {
+    width: 100px;
+    height: 100px;
+    font-size: 60px;
+}
+
+.score {
+    margin-bottom: 30px;
+}
+
+.alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: #504A40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.alert-content {
+    background-color: #E8E6E1;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.alert-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+    color: #27241D;
+}
+
+.alert-message {
+    font-size: 18px;
+    color: #423D33;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.play-again {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.play-again:hover {
+    background-color: #45A049;
 }

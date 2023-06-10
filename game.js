@@ -1,3 +1,17 @@
+let playerPoints = 0, computerPoints = 0;
+let roundNumber = 0;
+
+const playerChoice = document.querySelectorAll("button");
+const playerScore = document.querySelector("#playerScore");
+const computerScore = document.querySelector("#computerScore");
+const rounds = document.querySelector(".rounds");
+const gameResult = document.querySelector(".results");
+const endGame = document.querySelector(".endGame");
+let playerChoiceIcon = document.getElementById("player-choice");
+let computerChoiceIcon = document.getElementById("computer-choice");
+let alert = document.getElementById("alert");
+alert.style.display = "none";
+
 function getComputerChoice() 
 {
     let min = Math.ceil(1), max = Math.floor(3);
@@ -29,11 +43,15 @@ function playRound(playerSelection, computerSelection)
             if (computerSelection === "Paper")
             {
                 computerPoints++;
+                playerChoiceIcon.textContent = "🪨";
+                computerChoiceIcon.textContent = "📄";
                 return "You lose! Paper beats Rock!";
             }
             else
             {
                 playerPoints++;
+                playerChoiceIcon.textContent = "🪨";
+                computerChoiceIcon.textContent = "✂️";
                 return "You win! Rock beats Scissors!";
             }
             break;
@@ -41,11 +59,15 @@ function playRound(playerSelection, computerSelection)
             if (computerSelection === "Scissors")
             {
                 computerPoints++;
+                playerChoiceIcon.textContent = "📄";
+                computerChoiceIcon.textContent = "✂️";
                 return "You lose! Scissors beats Paper!";
             }
             else
             {
                 playerPoints++;
+                playerChoiceIcon.textContent = "📄";
+                computerChoiceIcon.textContent = "🪨";
                 return "You win! Paper beats Rock!"
             }
             break;
@@ -53,44 +75,51 @@ function playRound(playerSelection, computerSelection)
             if (computerSelection === "Rock")
             {
                 computerPoints++;
+                playerChoiceIcon.textContent = "✂️";
+                computerChoiceIcon.textContent = "🪨";
                 return "You lose! Rock beats Scissors!";
             }
             else
             {
                 playerPoints++;
+                playerChoiceIcon.textContent = "✂️";
+                computerChoiceIcon.textContent = "📄";
                 return "You win! Scissors beats Paper!"
-
             }
             break;
     }
 
 }
 
-let playerPoints = 0, computerPoints = 0;
-let roundNumber = 0;
 
-const playerChoice = document.querySelectorAll("button");
-const playerScore = document.querySelector("#playerScore");
-const computerScore = document.querySelector("#computerScore");
-const rounds = document.querySelector(".rounds");
-const gameResult = document.querySelector(".results");
-const endGame = document.querySelector(".endGame");
 
 updateGamePoints();
 
 function endingGame(){
     if (playerPoints >= 5) 
     {
-        endGame.textContent = "Congratulations! You've beat the robot!"
+        showAlert("Congratulations! You've beat the robot!");
     }
     else if (computerPoints >= 5)
     {
-        endGame.textContent = "Oh no! You've lost to the robot!"
+        showAlert("Oh no! You've lost to the robot!");
     }
     else
     {
         return;
     }
+}
+
+function showAlert(message) {
+    let alertMessage = document.querySelector(".alert-message");
+    alertMessage.textContent = message;
+    let alert = document.getElementById("alert");
+    alert.style.display = "flex";
+    let playAgainButton = document.querySelector(".play-again");
+}
+
+function restartGame() {
+    location.reload();
 }
 
 function updateGameRounds(playerChoice, getComputerChoice) {
@@ -116,8 +145,7 @@ playerChoice.forEach((button) => {
             endingGame();
             roundNumber++;
             updateGameRounds(button.id, computerOption);
-        }
-        
+        } 
     })
 });
 
